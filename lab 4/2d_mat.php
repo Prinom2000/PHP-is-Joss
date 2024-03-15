@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['size'])) {
     $size = $_POST['size'];
 
     if (isset($_POST['matrix'])) {
+        // Retrieve matrix data and calculate the sum of the right diagonal elements
         $matrix = $_POST['matrix'];
         $rightDiagonalSum = 0;
 
@@ -29,9 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['size'])) {
 
         echo "<p>Addition of the right diagonal elements is: $rightDiagonalSum</p>";
     } else {
+        // If matrix data is not submitted, display the form to input matrix elements
         echo "<form action='' method='post'>";
         echo "<p>Input elements in the matrix:</p>";
 
+        // Creating matrix input fields
         for ($i = 0; $i < $size; $i++) {
             for ($j = 0; $j < $size; $j++) {
                 echo "element - [$i],[$j] : <input type='number' name='matrix[$i][$j]' required><br>";
